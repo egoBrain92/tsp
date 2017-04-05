@@ -146,7 +146,7 @@ public class RandomGraph {
 
 			// start writing to file
 			rf = new PrintWriter(GVL.outputFile); // overwrite old file
-			rf.println("undirected\nnoWeightsFromFile");
+			rf.println("10\nnoWeightsFromFile");
 
 			rf.println(adjacencyList.size());
 

@@ -19,21 +19,30 @@ public class Graph {
 
 		Scanner sc = new Scanner(new File(file));
 
-		String graphType = sc.next();
+		int graphType = -1;
+		graphType = sc.nextInt();// sc.next();
 
 		String noWeightsFromFile = sc.next();
 
-		boolean undirected = true;
+		boolean useSecoundEdgeAppearance = true;
 
-		if (graphType.equals("directed")) {
-			undirected = false;
+		switch (graphType) {
+		case 10:
+			useSecoundEdgeAppearance = false;
+			break;
+		case 20:
+			useSecoundEdgeAppearance = true; //todo
+			break;
+		default:
+			System.out.println("Invalid graphType in input file: " + graphType);
+			break;
 		}
 
 		adjLists = new Vertex[sc.nextInt()];
 
 		readVertices(sc);
 
-		readEdges(sc, undirected);
+		readEdges(sc, useSecoundEdgeAppearance);
 
 	}
 
@@ -53,7 +62,7 @@ public class Graph {
 		}
 	}
 
-	public void readEdges(Scanner sc, boolean undirected) {
+	public void readEdges(Scanner sc, boolean graphType) {
 		while (sc.hasNext()) { // && (sc.next().equals("#end"))) {
 			// read vertex names and translate to vertex numbers
 			String nextElement = sc.next();
@@ -71,7 +80,7 @@ public class Graph {
 
 			adjLists[v1].adjList = new Neighbor(v2, adjLists[v1].adjList,
 					weight);
-			if (undirected) {
+			if (graphType) {
 				adjLists[v2].adjList = new Neighbor(v1, adjLists[v2].adjList,
 						weight);
 			}
@@ -110,7 +119,7 @@ public class Graph {
 				return v;
 			}
 		}
-		//only executes when the input file is not correctly formated.
+		// only executes when the input file is not correctly formated.
 		return -1;
 	}
 
