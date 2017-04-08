@@ -14,6 +14,7 @@ public class Main {
 		}
 
 		menu.executeMenu(GVL.menuSelector);
+		
 
 //		GVL.graph = new Graph(GVL.file);
 //		if ((GVL.noWeightsFromFile.equals("noWeightsFromFile"))) {

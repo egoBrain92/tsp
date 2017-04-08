@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.JPanel;
@@ -11,6 +12,7 @@ import javax.swing.JPanel;
 public class Graph {
 
 	Vertex[] adjLists;
+//	Vertex[] adjLists = new ArrayList<Vertex>();
 
 	public int edgeCounter = 0;
 	public int verticesCounter = 0;
@@ -128,7 +130,7 @@ public class Graph {
 		System.out.println("Vertices: " + verticesCounter + " Edges: "
 				+ edgeCounter);
 		for (int v = 0; v < adjLists.length; v++) {
-			System.out.print(adjLists[v].name + "[" + (v + 1) + "]");
+			System.out.print(adjLists[v].name + "[" + (v ) + "]");
 			for (Neighbor nbr = adjLists[v].adjList; nbr != null; nbr = nbr.next) {
 				System.out.print(" -" + "(" + nbr.weight + ")" + "-> "
 						+ adjLists[nbr.vertexNum].name + "[" + nbr.vertexNum

@@ -59,7 +59,14 @@ public class Menu {
 			GUIGraph jp = new GUIGraph(GVL.graph);
 
 			GUIFrame jf = new GUIFrame(jp);
-
+			
+			NearestNeighbour nn = new NearestNeighbour(GVL.graph);
+			System.out.println("check1");
+			nn.doNearestNeighbour();
+//			nn.doNN();
+			//nn.checkVisited();
+			System.out.println("check2");
+			
 			break;
 		default:
 			System.out.println("Invalid selection.");
